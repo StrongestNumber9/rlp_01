@@ -78,6 +78,7 @@ public class ConnectionTest implements Runnable {
         relpBatch.insert("Sending a message".getBytes(StandardCharsets.UTF_8));
         try {
             relpConnection.commit(relpBatch);
+            Assertions.fail("Commit should fail");
         } catch(IOException ignored) {
             relpConnection.tearDown();
         }
